@@ -1,5 +1,17 @@
-import { createUser } from '../models/userModel.js'
+import { createUser, getUsers } from '../models/userModel.js'
 import { findError } from '../utils/utils.js'
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await getUsers()
+    res.status(200).json(users)
+  } catch (error) {
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al mostrar los usuarios' })
+  }
+}
 
 const createUsers = async (req, res) => {
   try {
@@ -15,4 +27,4 @@ const createUsers = async (req, res) => {
   }
 }
 
-export { createUsers }
+export { getAllUsers, createUsers }

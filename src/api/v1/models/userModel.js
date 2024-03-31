@@ -1,6 +1,12 @@
 import pool from '../../../../config/db/conectionDb.js'
 import bcrypt from 'bcryptjs'
 
+const getUsers = async () => {
+  const SQLquery = { text: 'SELECT * FROM users ORDER BY id' }
+  const { rows } = await pool.query(SQLquery)
+  return rows
+}
+
 const createUser = async ({
   username,
   name,
@@ -18,4 +24,4 @@ const createUser = async ({
   return rows[0]
 }
 
-export { createUser }
+export { getUsers, createUser }
