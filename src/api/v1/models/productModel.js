@@ -1,5 +1,11 @@
 import pool from '../../../../config/db/conectionDb.js'
 
+const getProducts = async () => {
+  const SQLquery = { text: 'SELECT * FROM products ORDER BY id' }
+  const { rows } = await pool.query(SQLquery)
+  return rows
+}
+
 const createProduct = async ({
   name,
   description,
@@ -45,4 +51,4 @@ const addCategories = async (productId, categories) => {
   return addedCategoriesNames
 }
 
-export { createProduct }
+export { getProducts, createProduct }
