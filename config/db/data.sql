@@ -83,11 +83,12 @@ INSERT INTO comments (product_id, user_id, comment) VALUES
 -- categories values
 
 INSERT INTO categories (name) VALUES
-('Electrónicos'),
+('Electronicos'),
 ('Ropa'),
 ('Hogar y Jardín'),
 ('Libros'),
-('Deportes y Aire libre');
+('Deportes y Aire libre'),
+('Otros');
 
 -- product_categories values
 

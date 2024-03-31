@@ -1,4 +1,4 @@
-const validateParametersUser = (req, res, next) => {
+const validateParamsUser = (req, res, next) => {
   const user = req.body
   if (
     !user.username ||
@@ -14,4 +14,4 @@ const validateParametersUser = (req, res, next) => {
   next()
 }
 
-export { validateParametersUser }
+export { validateParamsUser }
