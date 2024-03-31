@@ -1,11 +1,21 @@
 -- users values
 
 INSERT INTO users (username, name, lastname, phonenumber, email, password) VALUES
-('user1', 'John', 'Doe', '+123456789', 'john@example.com', 'password1'),
-('user2', 'Jane', 'Smith', '+987654321', 'jane@example.com', 'password2'),
-('user3', 'Alice', 'Johnson', NULL, 'alice@example.com', 'password3'),
-('user4', 'Bob', 'Williams', '+111222333', 'bob@example.com', 'password4'),
-('user5', 'Emma', 'Brown', '+444555666', 'emma@example.com', 'password5');
+('user1', 'John', 'Doe', '+123456789', 'john@example.com', '$2a$10$bAYodSchd2AD9LTzyW9wJeP80PhvapzD3Ein4A/eLf4hX483aG0Ce'),
+('user2', 'Jane', 'Smith', '+987654321', 'jane@example.com', '$2a$10$j.2NhVt0.QmzrJw2tu1IYe4xcYjobQoZSkOBdacbHWjk02ikfoEMu'),
+('user3', 'Alice', 'Johnson', NULL, 'alice@example.com', '$2a$10$6sYLXPGoFWw3EvOlKF.jcuBuAFv9Ur/HbAwRXisZhG0P/XBd7274q'),
+('user4', 'Bob', 'Williams', '+111222333', 'bob@example.com', '$2a$10$dC67kmjQ4vlcZB3H2O.Fqe5AtghovLWpkRYmx0oxR2ifATRlOHrze'),
+('user5', 'Emma', 'Brown', '+444555666', 'emma@example.com', '$2a$10$0QqrtGyFjKAPCAwpbuSM7uiR61QmNlVKXnJrEkvd2hdi5vvxFjW92');
+
+-- user passwords:
+
+--  password | id
+-- ----------+----
+-- password1 |  1
+-- password2 |  2
+-- password3 |  3
+-- password4 |  4
+-- password5 |  5
 
 -- addresses values
 
