@@ -7,7 +7,7 @@ const ERRORS = [
   {
     code: 'invalidID',
     status: 404,
-    message: 'No se encontró ningún post con ese ID'
+    message: 'No se encontró ningún registro con ese ID'
   },
   { code: 'auth_01', status: 400, message: 'el usuario no existe' },
   { code: 'auth_02', status: 400, message: 'contraseña invalida' },

@@ -6,6 +6,18 @@ const getProducts = async () => {
   return rows
 }
 
+const getProductById = async id => {
+  const SQLquery = {
+    text: 'SELECT * FROM products WHERE id = $1',
+    values: [id]
+  }
+  const { rowCount, rows } = await pool.query(SQLquery)
+  if (rowCount === 0) {
+    throw { code: 'invalidID' }
+  }
+  return rows[0]
+}
+
 const createProduct = async ({
   name,
   description,
@@ -51,4 +63,4 @@ const addCategories = async (productId, categories) => {
   return addedCategoriesNames
 }
 
-export { getProducts, createProduct }
+export { getProducts, getProductById, createProduct }

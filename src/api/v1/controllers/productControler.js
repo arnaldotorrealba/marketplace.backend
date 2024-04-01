@@ -1,4 +1,8 @@
-import { getProducts, createProduct } from '../models/productModel.js'
+import {
+  getProducts,
+  getProductById,
+  createProduct
+} from '../models/productModel.js'
 import { findError } from '../utils/utils.js'
 
 const getAllProducts = async (req, res) => {
@@ -10,6 +14,20 @@ const getAllProducts = async (req, res) => {
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
       : res.status(500).json({ error: 'Error al mostrar los productos' })
+  }
+}
+
+const getProductsById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const productById = await getProductById(id)
+    res.status(200).json({ product: productById })
+  } catch (error) {
+    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al mostrar el producto' })
   }
 }
 
@@ -27,4 +45,4 @@ const createProducts = async (req, res) => {
   }
 }
 
-export { getAllProducts, createProducts }
+export { getAllProducts, getProductsById, createProducts }
