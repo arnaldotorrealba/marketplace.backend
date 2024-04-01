@@ -1,4 +1,5 @@
 import { createUser, getUsers } from '../models/userModel.js'
+import { findUserByEmail } from '../models/loginModel.js'
 import { findError } from '../utils/utils.js'
 
 const getAllUsers = async (req, res) => {
@@ -10,6 +11,20 @@ const getAllUsers = async (req, res) => {
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
       : res.status(500).json({ error: 'Error al mostrar los usuarios' })
+  }
+}
+
+const getUsersByEmail = async (req, res) => {
+  try {
+    console.log(req.user)
+    const userByEmail = await findUserByEmail(req.user)
+    res.status(200).json({ user: userByEmail })
+  } catch (error) {
+    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al mostrar el producto' })
   }
 }
 
@@ -27,4 +42,4 @@ const createUsers = async (req, res) => {
   }
 }
 
-export { getAllUsers, createUsers }
+export { getAllUsers, getUsersByEmail, createUsers }
