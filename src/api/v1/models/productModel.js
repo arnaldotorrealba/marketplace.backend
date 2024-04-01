@@ -38,6 +38,24 @@ const createProduct = async ({
   return { ...rows[0], categories: addedCategories }
 }
 
+const deleteProduct = async id => {
+  const deleteProductCategoriesQuery = {
+    text: 'DELETE FROM product_categories WHERE product_id = $1',
+    values: [id]
+  }
+  await pool.query(deleteProductCategoriesQuery)
+
+  const deleteProductQuery = {
+    text: 'DELETE FROM products WHERE id = $1',
+    values: [id]
+  }
+  const response = await pool.query(deleteProductQuery)
+
+  if (response.rowCount === 0) {
+    throw { code: 'invalidID' }
+  }
+}
+
 const addCategories = async (productId, categories) => {
   const addedCategoriesNames = []
   for (const categoryName of categories) {
@@ -63,4 +81,4 @@ const addCategories = async (productId, categories) => {
   return addedCategoriesNames
 }
 
-export { getProducts, getProductById, createProduct }
+export { getProducts, getProductById, createProduct, deleteProduct }

@@ -1,7 +1,8 @@
 import {
   getProducts,
   getProductById,
-  createProduct
+  createProduct,
+  deleteProduct
 } from '../models/productModel.js'
 import { findError } from '../utils/utils.js'
 
@@ -45,4 +46,18 @@ const createProducts = async (req, res) => {
   }
 }
 
-export { getAllProducts, getProductsById, createProducts }
+const deleteProducts = async (req, res) => {
+  try {
+    const { id } = req.params
+    await deleteProduct(id)
+    res.status(200).json({ message: 'Producto Eliminado con éxito' })
+  } catch (error) {
+    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al eliminar el producto' })
+  }
+}
+
+export { getAllProducts, getProductsById, createProducts, deleteProducts }
