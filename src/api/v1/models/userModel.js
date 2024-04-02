@@ -24,4 +24,22 @@ const createUser = async ({
   return rows[0]
 }
 
-export { getUsers, createUser }
+const updateUserByEmail = async (
+  { email },
+  { username, name, lastname, phonenumber }
+) => {
+  const SQLquery = {
+    text: 'UPDATE users SET username = $2, name = $3, lastname = $4, phonenumber = $5 WHERE email = $1 RETURNING *',
+    values: [email, username, name, lastname, phonenumber]
+  }
+
+  const { rows } = await pool.query(SQLquery)
+
+  if (rows.length === 0) {
+    throw new Error('Product not found')
+  }
+
+  return rows[0]
+}
+
+export { getUsers, createUser, updateUserByEmail }
