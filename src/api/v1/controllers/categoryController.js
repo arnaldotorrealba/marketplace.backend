@@ -1,7 +1,8 @@
 import {
   getCategories,
   createCategory,
-  updateCategory
+  updateCategory,
+  deleteCategory
 } from '../models/categoryModel.js'
 import { findError } from '../utils/utils.js'
 
@@ -44,4 +45,23 @@ const updateCategories = async (req, res) => {
   }
 }
 
-export { getAllCategories, createCategories, updateCategories }
+const deleteCategories = async (req, res) => {
+  try {
+    const { id } = req.params
+    await deleteCategory(id)
+    res.status(200).json({ message: 'Categoría eliminada con éxito' })
+  } catch (error) {
+    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al eliminar la categoría' })
+  }
+}
+
+export {
+  getAllCategories,
+  createCategories,
+  updateCategories,
+  deleteCategories
+}

@@ -31,4 +31,22 @@ const updateCategory = async (id, { name }) => {
   return rows[0]
 }
 
-export { getCategories, createCategory, updateCategory }
+const deleteCategory = async id => {
+  const deleteProductCategoriesQuery = {
+    text: 'DELETE FROM product_categories WHERE category_id = $1',
+    values: [id]
+  }
+  await pool.query(deleteProductCategoriesQuery)
+
+  const deleteCategoryQuery = {
+    text: 'DELETE FROM categories WHERE id = $1',
+    values: [id]
+  }
+  const response = await pool.query(deleteCategoryQuery)
+
+  if (response.rowCount === 0) {
+    throw { code: 'invalidID' }
+  }
+}
+
+export { getCategories, createCategory, updateCategory, deleteCategory }
