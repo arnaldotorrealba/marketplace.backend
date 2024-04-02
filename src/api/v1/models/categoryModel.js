@@ -16,4 +16,19 @@ const createCategory = async ({ name }) => {
   return rows[0]
 }
 
-export { getCategories, createCategory }
+const updateCategory = async (id, { name }) => {
+  const SQLquery = {
+    text: 'UPDATE categories SET name = $2 WHERE id = $1 RETURNING *',
+    values: [id, name]
+  }
+
+  const { rows } = await pool.query(SQLquery)
+
+  if (rows.length === 0) {
+    throw new Error('Category not found')
+  }
+
+  return rows[0]
+}
+
+export { getCategories, createCategory, updateCategory }
