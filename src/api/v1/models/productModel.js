@@ -38,6 +38,24 @@ const createProduct = async ({
   return { ...rows[0], categories: addedCategories }
 }
 
+const updateProduct = async (
+  id,
+  { name, description, price, stock_quantity, img_url }
+) => {
+  const SQLquery = {
+    text: 'UPDATE products SET name = $2, description = $3, price = $4, stock_quantity = $5, img_url = $6 WHERE id = $1 RETURNING *',
+    values: [id, name, description, price, stock_quantity, img_url]
+  }
+
+  const { rows } = await pool.query(SQLquery)
+
+  if (rows.length === 0) {
+    throw new Error('Product not found')
+  }
+
+  return rows[0]
+}
+
 const deleteProduct = async id => {
   const deleteProductCategoriesQuery = {
     text: 'DELETE FROM product_categories WHERE product_id = $1',
@@ -81,4 +99,10 @@ const addCategories = async (productId, categories) => {
   return addedCategoriesNames
 }
 
-export { getProducts, getProductById, createProduct, deleteProduct }
+export {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct
+}
