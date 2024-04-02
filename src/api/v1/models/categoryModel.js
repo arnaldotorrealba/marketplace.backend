@@ -6,4 +6,14 @@ const getCategories = async () => {
   return rows
 }
 
-export { getCategories }
+const createCategory = async ({ name }) => {
+  const SQLquery = {
+    text: 'INSERT INTO categories (name) VALUES ($1) RETURNING *',
+    values: [name]
+  }
+  const { rows } = await pool.query(SQLquery)
+
+  return rows[0]
+}
+
+export { getCategories, createCategory }

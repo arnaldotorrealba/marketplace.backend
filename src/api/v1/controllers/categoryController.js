@@ -1,4 +1,4 @@
-import { getCategories } from '../models/categoryModel.js'
+import { getCategories, createCategory } from '../models/categoryModel.js'
 import { findError } from '../utils/utils.js'
 
 const getAllCategories = async (req, res) => {
@@ -9,8 +9,21 @@ const getAllCategories = async (req, res) => {
     const errorFound = findError(error.code)
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
-      : res.status(500).json({ error: 'Error al mostrar los productos' })
+      : res.status(500).json({ error: 'Error al mostrar las categorías' })
   }
 }
 
-export { getAllCategories }
+const createCategories = async (req, res) => {
+  try {
+    const category = req.body
+    const newCategory = await createCategory(category)
+    res.status(201).json({ category: newCategory })
+  } catch (error) {
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al crear la categoría' })
+  }
+}
+
+export { getAllCategories, createCategories }
