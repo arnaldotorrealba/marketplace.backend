@@ -81,6 +81,25 @@ CREATE TRIGGER update_products_updated_at
     FOR EACH ROW
 EXECUTE PROCEDURE update_record();
 
+-- ***** likes table *****
+
+CREATE TABLE likes (
+  user_id INT REFERENCES users(id),
+  product_id INT REFERENCES products(id),
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (user_id, product_id)
+);
+
+-- ***** add trigger for likes table *****
+
+CREATE TRIGGER update_likes_updated_at
+    BEFORE UPDATE
+    ON
+        likes
+    FOR EACH ROW
+EXECUTE PROCEDURE update_record();
+
 -- ***** comments table *****
 
 CREATE TABLE comments (

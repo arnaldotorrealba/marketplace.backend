@@ -61,6 +61,20 @@ INSERT INTO products (name, description, price, stock_quantity, img_url, average
 ('Tienda de campaña para 4 personas', 'La tienda de campaña para 4 personas ofrece comodidad y protección en tus aventuras al aire libre. Con un diseño espacioso y fácil de montar, es perfecta para acampar en familia o con amigos.', 149.99, 20, '4_person_tent.jpg', 4.5, 10),
 ('Raquetas de tenis de mesa profesionales', 'Estas raquetas de tenis de mesa profesionales ofrecen un excelente control y velocidad para partidos competitivos. Con mangos ergonómicos y una construcción duradera, son ideales para jugadores de todos los niveles.', 79.99, 50, 'professional_ping_pong_paddles.jpg', 4.7, 35);
 
+-- likes values
+
+INSERT INTO likes (user_id, product_id) VALUES
+(1, 1),
+(1, 3),
+(1, 5),
+(1, 7),
+(1, 9),
+(2, 2),
+(2, 4),
+(2, 6),
+(2, 8),
+(2, 10);
+
 -- comments values
 
 INSERT INTO comments (product_id, user_id, comment) VALUES
