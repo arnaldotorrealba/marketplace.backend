@@ -19,4 +19,17 @@ const addLike = async (user_id, product_id) => {
   return rows[0]
 }
 
-export { getLikes, addLike }
+const deleteLike = async (user_id, product_id) => {
+  const SQLQuery = {
+    text: 'DELETE FROM likes WHERE user_id = $1 AND product_id = $2',
+    values: [user_id, product_id]
+  }
+
+  const response = await pool.query(SQLQuery)
+
+  if (response.rowCount === 0) {
+    throw { code: 'invalidID' }
+  }
+}
+
+export { getLikes, addLike, deleteLike }
