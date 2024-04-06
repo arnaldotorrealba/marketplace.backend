@@ -19,12 +19,13 @@ const loginUser = async (req, res) => {
       return await sendErrorResponse(res, 'auth_02')
     }
 
-    const { email, username, password } = findUser
+    const { email, username, id } = findUser
     const token = await createToken(email)
 
     res.status(200).json({
-      message: `Bienvenido, ${username}`,
       code: 200,
+      message: `Bienvenido, ${username}`,
+      id,
       token
     })
   } catch (error) {
