@@ -1,5 +1,5 @@
 CREATE DATABASE marketplace;
-/c marketplace;
+\c marketplace;
 
 -- ***** create function for TIMESTAMPS *****
 
@@ -223,7 +223,7 @@ EXECUTE PROCEDURE update_record();
 CREATE TABLE user_roles (
   user_id INT REFERENCES users(id),
   role_id INT REFERENCES roles(id),
-  PRIMARY KEY (user_id, rol_id), -- Ensure there are no duplicate user and rol combinations
+  PRIMARY KEY (user_id, role_id), -- Ensure there are no duplicate user and rol combinations
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
