@@ -2,6 +2,7 @@ import express from 'express'
 import {
   getAllProducts,
   getProductsById,
+  getProductsByCategory,
   createProducts,
   updateProducts,
   deleteProducts
@@ -11,7 +12,8 @@ import { validateParamsProduct } from '../../middlewares/validateParamsProduct.j
 const router = express.Router()
 
 router.get('/products', getAllProducts)
-router.get('/products/:id', getProductsById)
+router.get('/product/:id', getProductsById)
+router.get('/products/:category', getProductsByCategory)
 router.post('/products', validateParamsProduct, createProducts)
 router.put('/products/:id', validateParamsProduct, updateProducts)
 router.delete('/products/:id', deleteProducts)

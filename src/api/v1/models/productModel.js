@@ -18,6 +18,27 @@ const getProductById = async id => {
   return rows[0]
 }
 
+const getAllProductsByCategory = async category => {
+  const SQLquery = {
+    text: `
+      SELECT products.* 
+      FROM products 
+      INNER JOIN product_categories ON products.id = product_categories.product_id 
+      INNER JOIN categories ON product_categories.category_id = categories.id 
+      WHERE categories.name = $1
+    `,
+    values: [category]
+  }
+
+  const { rowCount, rows } = await pool.query(SQLquery)
+
+  if (rowCount === 0) {
+    throw { code: 'invalidCategory' }
+  }
+
+  return rows
+}
+
 const createProduct = async ({
   name,
   description,
@@ -102,6 +123,7 @@ const addCategories = async (productId, categories) => {
 export {
   getProducts,
   getProductById,
+  getAllProductsByCategory,
   createProduct,
   updateProduct,
   deleteProduct

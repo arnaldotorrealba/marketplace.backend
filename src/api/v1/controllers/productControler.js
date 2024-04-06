@@ -1,6 +1,7 @@
 import {
   getProducts,
   getProductById,
+  getAllProductsByCategory,
   createProduct,
   updateProduct,
   deleteProduct
@@ -25,7 +26,19 @@ const getProductsById = async (req, res) => {
     const productById = await getProductById(id)
     res.status(200).json({ product: productById })
   } catch (error) {
-    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al mostrar el producto' })
+  }
+}
+
+const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params
+    const productsByCategory = await getAllProductsByCategory(category)
+    res.status(200).json({ products: productsByCategory })
+  } catch (error) {
     const errorFound = findError(error.code)
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
@@ -77,6 +90,7 @@ const deleteProducts = async (req, res) => {
 export {
   getAllProducts,
   getProductsById,
+  getProductsByCategory,
   createProducts,
   updateProducts,
   deleteProducts
