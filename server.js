@@ -6,6 +6,7 @@ import userRouter from './config/routes/userRoutes.js'
 import productRouter from './config/routes/productRoutes.js'
 import categoryRouter from './config/routes/categoryRoutes.js'
 import likeRoutes from './config/routes/likeRoutes.js'
+import commentRoutes from './config/routes/commentRoutes.js'
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -17,5 +18,6 @@ app.use(userRouter)
 app.use(productRouter)
 app.use(categoryRouter)
 app.use(likeRoutes)
+app.use(commentRoutes)
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`))
