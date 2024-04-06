@@ -10,4 +10,13 @@ const getLikes = async user_id => {
   return rows
 }
 
-export { getLikes }
+const addLike = async (user_id, product_id) => {
+  const SQLquery = {
+    text: 'INSERT INTO likes (user_id, product_id) VALUES ($1, $2) RETURNING *',
+    values: [user_id, product_id]
+  }
+  const { rows } = await pool.query(SQLquery)
+  return rows[0]
+}
+
+export { getLikes, addLike }
