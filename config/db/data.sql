@@ -25,7 +25,8 @@ VALUES
 (2, '456 Elm St', 'City2', 'State2', 'Country2', '23456'),
 (3, '789 Oak St', 'City3', 'State3', 'Country3', '34567'),
 (4, '101 Pine St', 'City4', 'State4', 'Country4', '45678'),
-(5, '202 Maple St', 'City5', 'State5', 'Country5', '56789');
+(5, '202 Maple St', 'City5', 'State5', 'Country5', '56789'),
+(1, '753 Gam St', 'City6', 'State6', 'Country6', '52856');
 
 -- products values
 
