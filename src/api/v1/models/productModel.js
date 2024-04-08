@@ -18,6 +18,16 @@ const getProductById = async id => {
   return rows[0]
 }
 
+const getProductByUserId = async user_id => {
+  const SQLQuery = {
+    text: 'SELECT * FROM products WHERE user_id = $1',
+    values: [user_id]
+  }
+
+  const { rows } = await pool.query(SQLQuery)
+  return rows
+}
+
 const getAllProductsByCategory = async category => {
   const SQLquery = {
     text: `
@@ -123,6 +133,7 @@ const addCategories = async (productId, categories) => {
 export {
   getProducts,
   getProductById,
+  getProductByUserId,
   getAllProductsByCategory,
   createProduct,
   updateProduct,

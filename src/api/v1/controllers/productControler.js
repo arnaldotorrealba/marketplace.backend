@@ -1,6 +1,7 @@
 import {
   getProducts,
   getProductById,
+  getProductByUserId,
   getAllProductsByCategory,
   createProduct,
   updateProduct,
@@ -30,6 +31,19 @@ const getProductsById = async (req, res) => {
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
       : res.status(500).json({ error: 'Error al mostrar el producto' })
+  }
+}
+
+const getProductsByUserId = async (req, res) => {
+  try {
+    const { user_id } = req.params
+    const productsByUserId = await getProductByUserId(user_id)
+    res.status(200).json({ products: productsByUserId })
+  } catch (error) {
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al mostrar los productos' })
   }
 }
 
@@ -90,6 +104,7 @@ const deleteProducts = async (req, res) => {
 export {
   getAllProducts,
   getProductsById,
+  getProductsByUserId,
   getProductsByCategory,
   createProducts,
   updateProducts,
