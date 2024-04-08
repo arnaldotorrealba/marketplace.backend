@@ -68,6 +68,8 @@ CREATE TABLE products (
   img_url VARCHAR(255), 
   average_rating DECIMAL(2, 1),   -- Decimal for the average of the ratings
   total_ratings INT DEFAULT 0,    -- Number of reviews
+  state VARCHAR(10) NOT NULL DEFAULT 'active',
+  user_id INT REFERENCES users(id),
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
