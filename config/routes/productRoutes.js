@@ -3,6 +3,7 @@ import {
   getAllProducts,
   getProductsById,
   getProductsByUserId,
+  getSelledProductsByUserId,
   getProductsByCategory,
   createProducts,
   updateProducts,
@@ -15,6 +16,7 @@ const router = express.Router()
 router.get('/products', getAllProducts)
 router.get('/product/:id', getProductsById)
 router.get('/product-by-user/:user_id', getProductsByUserId)
+router.get('/selled-products-by-user/:user_id', getSelledProductsByUserId)
 router.get('/products/:category', getProductsByCategory)
 router.post('/products', validateParamsProduct, createProducts)
 router.put('/products/:id', validateParamsProduct, updateProducts)

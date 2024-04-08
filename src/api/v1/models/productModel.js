@@ -28,6 +28,32 @@ const getProductByUserId = async user_id => {
   return rows
 }
 
+const getSelledProductByUserId = async user_id => {
+  const SQLQuery = {
+    text: `
+        SELECT 
+          op.product_id AS product_id,
+          p.name AS product_name,
+          op.order_id AS order_id,
+          op.quantity AS quantity,
+          op.subtotal AS subtotal,
+          o.created_at AS date
+        FROM 
+          order_products op
+        INNER JOIN 
+          orders o ON op.order_id = o.id
+        INNER JOIN 
+          products p ON op.product_id = p.id
+        WHERE 
+          o.user_id = $1
+      `,
+    values: [user_id]
+  }
+
+  const { rows } = await pool.query(SQLQuery)
+  return rows
+}
+
 const getAllProductsByCategory = async category => {
   const SQLquery = {
     text: `
@@ -134,6 +160,7 @@ export {
   getProducts,
   getProductById,
   getProductByUserId,
+  getSelledProductByUserId,
   getAllProductsByCategory,
   createProduct,
   updateProduct,

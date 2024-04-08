@@ -187,6 +187,7 @@ CREATE TABLE order_products (
   order_id INT REFERENCES orders(id),
   product_id INT REFERENCES products(id),
   quantity INT NOT NULL,
+  subtotal NUMERIC(10, 2) NOT NULL,
   PRIMARY KEY (order_id, product_id), -- Ensure there are no duplicate order and product combinations
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
