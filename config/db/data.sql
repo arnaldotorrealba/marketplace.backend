@@ -153,6 +153,11 @@ VALUES (1, 1, 2, 120.00, 'pendiente');
 INSERT INTO orders (user_id, address_id, total_quantity, total_amount, state)
 VALUES (2, 2, 3, 250.00, 'pendiente');
 
+-- Insertar la orden 03
+
+INSERT INTO orders (user_id, address_id, total_quantity, total_amount, state)
+VALUES (1, 1, 6, 3629.94, 'pendiente');
+
 -- order_products values
 
 INSERT INTO order_products (order_id, product_id, quantity)
@@ -160,7 +165,10 @@ VALUES
 (1, 1, 1),  -- Producto 1: Cantidad 1
 (1, 2, 1),  -- Producto 2: Cantidad 1 
 (2, 3, 1),  -- Producto 3: Cantidad 1
-(2, 4, 2);  -- Producto 4: Cantidad 2
+(2, 4, 2),  -- Producto 4: Cantidad 2
+(3, 5, 5),
+(3, 6, 1);
+
 
 -- roles values
 
