@@ -81,11 +81,12 @@ const createProduct = async ({
   price,
   stock_quantity,
   img_url,
+  user_id,
   categories
 }) => {
   const SQLquery = {
-    text: 'INSERT INTO products (name, description, price, stock_quantity, img_url) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-    values: [name, description, price, stock_quantity, img_url]
+    text: 'INSERT INTO products (name, description, price, stock_quantity, user_id, img_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+    values: [name, description, price, stock_quantity, user_id, img_url]
   }
   const { rows } = await pool.query(SQLquery)
   const productId = rows[0].id
