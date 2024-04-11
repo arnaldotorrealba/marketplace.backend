@@ -12,3 +12,7 @@
 ### Otras consideraciones:
 
 1. Para correos y contraseñas de los usuarios ver 'config/db/data.sql'.
+
+### Deploy:
+
+https://marketplace-backend-f1ey.onrender.com
