@@ -62,7 +62,7 @@ INSERT INTO products (name, description, price, stock_quantity, img_url, average
 ('Tienda de campaña para 4 personas', 'La tienda de campaña para 4 personas ofrece comodidad y protección en tus aventuras al aire libre. Con un diseño espacioso y fácil de montar, es perfecta para acampar en familia o con amigos.', 149.99, 20, '4_person_tent.jpg', 4.5, 10, 'active', 3),
 ('Raquetas de tenis de mesa profesionales', 'Estas raquetas de tenis de mesa profesionales ofrecen un excelente control y velocidad para partidos competitivos. Con mangos ergonómicos y una construcción duradera, son ideales para jugadores de todos los niveles.', 79.99, 50, 'professional_ping_pong_paddles.jpg', 4.7, 35, 'active', 3);
 
-
+UPDATE products SET img_url = 'https://unsplash.com/es/fotos/zapatilla-nike-roja-sin-emparejar-164_6wVEHfI';
 -- likes values
 
 INSERT INTO likes (user_id, product_id) VALUES
