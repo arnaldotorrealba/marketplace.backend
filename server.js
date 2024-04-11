@@ -25,3 +25,5 @@ app.use(orderRoutes)
 app.use(addressRoutes)
 
 app.listen(PORT, console.log(`¡Servidor encendido en el puerto! ${PORT}`))
+
+export default app

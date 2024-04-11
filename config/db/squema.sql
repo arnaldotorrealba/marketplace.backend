@@ -61,7 +61,7 @@ EXECUTE PROCEDURE update_record();
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL UNIQUE,
+  name VARCHAR(100) NOT NULL,
   description TEXT,
   price NUMERIC(10, 2) NOT NULL,  -- Up to 10 digits total, with 2 of them after the decimal point.
   stock_quantity INT NOT NULL,
