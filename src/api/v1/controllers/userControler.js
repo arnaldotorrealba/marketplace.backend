@@ -1,5 +1,5 @@
 import { createUser, getUsers, updateUserByEmail } from '../models/userModel.js'
-import { findUserByEmail } from '../models/loginModel2.js'
+import { findUserByEmail } from '../models/loginModel.js'
 import { findError } from '../utils/utils.js'
 
 const getAllUsers = async (req, res) => {

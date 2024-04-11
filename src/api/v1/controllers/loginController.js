@@ -1,4 +1,4 @@
-import { findUserByEmail } from '../models/loginModel2.js'
+import { findUserByEmail } from '../models/loginModel.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { findError } from '../utils/utils.js'
