@@ -1,4 +1,4 @@
-import pool from '../../../../config/db/conectionDb.js'
+import pool from '../../../../config/db/conectionDb'
 
 const getAddresses = async user_id => {
   const SQLquery = {

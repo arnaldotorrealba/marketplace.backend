@@ -1,4 +1,4 @@
-import pool from '../../../../config/db/conectionDB.js'
+import pool from '../../../../config/db/conectionDb'
 
 const findUserByEmail = async ({ email }) => {
   const SQLquery = {

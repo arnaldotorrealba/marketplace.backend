@@ -1,4 +1,4 @@
-import pool from '../../../../config/db/conectionDb.js'
+import pool from '../../../../config/db/conectionDb'
 
 const getProducts = async () => {
   const SQLquery = { text: 'SELECT * FROM products ORDER BY id' }
