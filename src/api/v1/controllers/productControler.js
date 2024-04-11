@@ -107,7 +107,6 @@ const deleteProducts = async (req, res) => {
     await deleteProduct(id)
     res.status(200).json({ message: 'Producto Eliminado con éxito' })
   } catch (error) {
-    console.log(error)
     const errorFound = findError(error.code)
     return errorFound.length
       ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
