@@ -1,4 +1,5 @@
 import pool from '../../../../config/db/conectionDb.js'
+import { getProductById } from './productModel.js'
 
 const getUserOrders = async user_id => {
   const SQLQuery = {
@@ -27,4 +28,39 @@ const getUserOrders = async user_id => {
   return rows
 }
 
-export { getUserOrders }
+const createOrder = async ({
+  user_id,
+  address_id,
+  total_quantity,
+  total_amount,
+  cart_products
+}) => {
+  const SQLquery = {
+    text: 'INSERT INTO orders (user_id, address_id, total_quantity, total_amount) VALUES ($1, $2, $3, $4) RETURNING *',
+    values: [user_id, address_id, total_quantity, total_amount]
+  }
+  const { rows } = await pool.query(SQLquery)
+  const order_id = rows[0].id
+
+  const addedProducts = await addProducts(order_id, cart_products)
+
+  return { ...rows[0], products: addedProducts }
+}
+
+const addProducts = async (order_id, cart_products) => {
+  const addedProducts = []
+  for (const cartProduct of cart_products) {
+    const product = await getProductById(cartProduct.product_id)
+    const subtotal = product.price * cartProduct.quantity
+
+    const addOrderProductsQuery = {
+      text: 'INSERT INTO order_products (order_id, product_id, quantity, subtotal) VALUES ($1, $2, $3, $4) RETURNING *',
+      values: [order_id, product.id, cartProduct.quantity, subtotal]
+    }
+    await pool.query(addOrderProductsQuery)
+    addedProducts.push(product)
+  }
+  return addedProducts
+}
+
+export { getUserOrders, createOrder }

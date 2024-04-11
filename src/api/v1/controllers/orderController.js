@@ -1,4 +1,4 @@
-import { getUserOrders } from '../models/orderModel.js'
+import { getUserOrders, createOrder } from '../models/orderModel.js'
 import { findError } from '../utils/utils.js'
 
 const getOrders = async (req, res) => {
@@ -15,4 +15,18 @@ const getOrders = async (req, res) => {
   }
 }
 
-export { getOrders }
+const createOrders = async (req, res) => {
+  try {
+    const order = req.body
+    const newOrder = await createOrder(order)
+    res.status(201).json({ Order: newOrder })
+  } catch (error) {
+    console.log(error)
+    const errorFound = findError(error.code)
+    return errorFound.length
+      ? res.status(errorFound[0].status).json({ error: errorFound[0].message })
+      : res.status(500).json({ error: 'Error al crear la orden' })
+  }
+}
+
+export { getOrders, createOrders }
