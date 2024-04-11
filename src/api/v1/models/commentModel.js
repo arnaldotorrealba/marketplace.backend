@@ -1,4 +1,4 @@
-import pool from '../../../../config/db/conectionDb'
+import pool from '../../../../config/db/conectionDb.js'
 
 const getComments = async product_id => {
   const SQLquery = {
