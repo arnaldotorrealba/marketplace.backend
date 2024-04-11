@@ -80,7 +80,7 @@ describe('products controller', () => {
   })
 
   describe('PUT /products/:id update products with valid params', () => {
-    let existingProductId
+    let createdProductId
     beforeEach(async () => {
       const payload = {
         user_id: 1,
@@ -92,11 +92,11 @@ describe('products controller', () => {
         categories: ['Otros']
       }
       const product = await createProduct(payload)
-      existingProductId = product.id
+      createdProductId = product.id
     })
 
     afterEach(async () => {
-      await deleteProduct(existingProductId)
+      await deleteProduct(createdProductId)
     })
 
     const data = {
@@ -110,21 +110,21 @@ describe('products controller', () => {
     }
     it('response with status code 200', async () => {
       const response = await request(app)
-        .put(`/products/${existingProductId}`)
+        .put(`/products/${createdProductId}`)
         .send(data)
       expect(response.statusCode).toBe(200)
     })
 
     it('returns a product property', async () => {
       const response = await request(app)
-        .put(`/products/${existingProductId}`)
+        .put(`/products/${createdProductId}`)
         .send(data)
       expect(response.body).toHaveProperty('product')
     })
 
     it('returns a instance of object', async () => {
       const response = await request(app)
-        .put(`/products/${existingProductId}`)
+        .put(`/products/${createdProductId}`)
         .send(data)
       const { product } = response.body
       expect(product).toBeInstanceOf(Object)
@@ -132,15 +132,15 @@ describe('products controller', () => {
 
     it('returns an object with id eq existingTravelId', async () => {
       const response = await request(app)
-        .put(`/products/${existingProductId}`)
+        .put(`/products/${createdProductId}`)
         .send(data)
       const { product } = response.body
-      expect(product.id).toEqual(existingProductId)
+      expect(product.id).toEqual(createdProductId)
     })
   })
 
   describe('DELETE /products/:i delete products with valid existing id', () => {
-    let existingProductId
+    let createdProductId
     beforeEach(async () => {
       const payload = {
         user_id: 1,
@@ -152,19 +152,19 @@ describe('products controller', () => {
         categories: ['Otros']
       }
       const product = await createProduct(payload)
-      existingProductId = product.id
+      createdProductId = product.id
     })
 
     it('returns a 200 status code', async () => {
       const response = await request(app).delete(
-        `/products/${existingProductId}`
+        `/products/${createdProductId}`
       )
       expect(response.statusCode).toBe(200)
     })
 
     it('returns a message', async () => {
       const response = await request(app).delete(
-        `/products/${existingProductId}`
+        `/products/${createdProductId}`
       )
       expect(response.body.message).toBe('Producto Eliminado con éxito')
     })
