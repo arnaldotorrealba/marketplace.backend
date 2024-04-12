@@ -1,4 +1,4 @@
-import pool from '../../../../config/db/conectionDb.js'
+import pool from '../../../../config/db/database_config.js'
 import { getProductById } from './productModel.js'
 
 const getUserOrders = async user_id => {
