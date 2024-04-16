@@ -98,11 +98,11 @@ const createProduct = async ({
 
 const updateProduct = async (
   id,
-  { name, description, price, stock_quantity, img_url }
+  { name, description, price, stock_quantity, img_url, state }
 ) => {
   const SQLquery = {
-    text: 'UPDATE products SET name = $2, description = $3, price = $4, stock_quantity = $5, img_url = $6 WHERE id = $1 RETURNING *',
-    values: [id, name, description, price, stock_quantity, img_url]
+    text: 'UPDATE products SET name = $2, description = $3, price = $4, stock_quantity = $5, img_url = $6, state = $7 WHERE id = $1 RETURNING *',
+    values: [id, name, description, price, stock_quantity, img_url, state]
   }
 
   const { rows } = await pool.query(SQLquery)
