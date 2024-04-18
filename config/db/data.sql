@@ -191,3 +191,102 @@ INSERT INTO user_roles (user_id, role_id) VALUES
 (5, 4); -- Emma Brown (seller)
 
 
+UPDATE products
+SET img_url = 'https://img.freepik.com/psd-gratis/set-diferentes-relojes-inteligentes_1104-120.jpg?w=740&t=st=1713311651~exp=1713312251~hmac=214cef251a45decc7c1373abf8b149c452b111f1a623c9e8ab2ca58f2f87cb63'
+WHERE id = 1;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/mujer-negocios-usando-portatil-cafeteria_23-2148002116.jpg?t=st=1713311805~exp=1713315405~hmac=58da13cb98d2e701e9d658eaa4aafe1640737339f083ad41aace87018571abd7&w=740'
+WHERE id = 2;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/cerrar-manos-sosteniendo-funda-auriculares-inalambricos_23-2148989858.jpg?t=st=1713311852~exp=1713315452~hmac=3d9040d194416fe6024f94f96ecd243fb8035a6b96b4ef1f4907bc08f6735630&w=740'
+WHERE id = 3;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/vista-pantalla-monitor-computadora_23-2150757335.jpg?t=st=1713311943~exp=1713315543~hmac=16e0938d6f7ea07ace56ae00690b09715a136ba804cd98e7793006a6e97c7e23&w=740'
+WHERE id = 4;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/camara-fotos-explotacion-mano_23-2150630972.jpg?t=st=1713311981~exp=1713315581~hmac=e2e4cec60e31aeeccbf708e9d27ed1f2e2459002ca7f19d064cd539df75c23e0&w=360'
+WHERE id = 5;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/modelo-moda-atractiva-posando-vestido-noche-negro_651396-1241.jpg?t=st=1713312050~exp=1713315650~hmac=97c84bfdbc599e556cf887563d5f16860a21c1e34750734cd4ae2b86d311dde1&w=360'
+WHERE id = 6;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/hombre-vestido-camisa-azul-diseno-signo-igual_53876-125243.jpg?t=st=1713312100~exp=1713315700~hmac=a4da60a49de846c381e7c30e59526ef3d7aaa2c80614d4e7668705d7b1fb4b96&w=360'
+WHERE id = 7;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/mujer-bonita-que-usa-tableta-pared_23-2148095800.jpg?t=st=1713312196~exp=1713315796~hmac=5ffdbc3206b1ed5a4ce08ccc4daa672eb5b86b5d3a9061de0453e4deafa2eb16&w=360'
+WHERE id = 8;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/mujer-mascara-buceo-playa_23-2148165134.jpg?t=st=1713366667~exp=1713370267~hmac=acacf0c0114d58a227d014385ff41f96a0a5bb991521a570dab253304f86ac0c&w=996'
+WHERE id = 9;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/chica-feliz-tiro-medio-sombrero-grande_23-2148905752.jpg?t=st=1713312361~exp=1713315961~hmac=19791572f769002b5e5d02251db20657a714b5e7eb42c6d9d90cd4da23c98c50&w=360'
+WHERE id = 10;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/primer-plano-cama-sabanas-blancas-arrugadas_1203-1512.jpg?t=st=1713312470~exp=1713316070~hmac=bfc6f6198dd5dc9f887b8178b0e5f8d24706181930ff0fb85562c615f431378d&w=360'
+WHERE id = 11;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/vector-gratis/coleccion-cuchillos-chef-realista_52683-75275.jpg?t=st=1713312544~exp=1713316144~hmac=7a54828b9a506043c92c8e6e2b722cc6925d95029eee0c713134cd6a415c1a9c&w=740'
+WHERE id = 12;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/fondo-mesa-comedor-angulo-alto-llamadas-zoom_23-2149684457.jpg?t=st=1713366480~exp=1713370080~hmac=af2f73e6372de50ad48460e41761b361775f9255efec81251fccd024d0c696bf&w=1380'
+WHERE id = 13;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/cerrar-arreglo-jarrones-modernos_23-2149646554.jpg?t=st=1713312794~exp=1713316394~hmac=bce9fce2bec422698079a0e04fb63ef664157a5d92aad98c22b4fa434f5247fe&w=740'
+WHERE id = 14;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/diseno-interiores-hermosa-planta_23-2149551400.jpg?t=st=1713312886~exp=1713316486~hmac=d0539d27485892138340a971ccae839930da4085bc22c5f1fdae5496a349c0c3&w=740'
+WHERE id = 15;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/naturaleza-muerta-sant-jordi-dia-libros-rosas_23-2151197560.jpg?t=st=1713312948~exp=1713316548~hmac=c8c823ef4b49075723e4f5c9c7889d67c809b3575fc6d4c8e8d217a5cac0b093&w=360'
+WHERE id = 16;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/mujer-libro-abierto-vela-suelo-bosque_23-2147902916.jpg?t=st=1713312976~exp=1713316576~hmac=6e7dcd9366370420c14a0bba192363d823083acecd3d85328a06095488617b6d&w=740'
+WHERE id = 17;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/bruja-halloween-que-sostiene-libro-conjuros-antiguo-maderas-iluminadas-sol_23-2147902862.jpg?t=st=1713313004~exp=1713316604~hmac=e6124c5e1bb7471556fb98b699ea47360c9f58c3bc22b54424518872f194ddb2&w=360'
+WHERE id = 18;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/flor-ramitas-flores-jarron-cerca-volumen-textil-azul-oscuridad_23-2148069321.jpg?t=st=1713313084~exp=1713316684~hmac=9bef60e2d6c552b77a85b2ec9b4ec3237f70ac0d53a2efb087fba96054640278&w=360'
+WHERE id = 19;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/naturaleza-muerta-sant-jordi-dia-libros-rosas_23-2151197561.jpg?t=st=1713313121~exp=1713316721~hmac=5a8cc20270643ea5131e5e39e57dc18c9c9241ee8449a1be9e875567950f4688&w=360'
+WHERE id = 20;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/retrato-hombre-mayor-bicicleta-montana_23-2148929646.jpg?t=st=1713313207~exp=1713316807~hmac=da1fb0c8404caa5b6b8981cb89e32c8084ead01b7fc9a29bd4b00f05f5f442ea&w=740'
+WHERE id = 21;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/cerrar-mujer-paddleboarding_23-2149105107.jpg?t=st=1713313243~exp=1713316843~hmac=0884b97d11ff6d35c373fdbdf6fcc810affac9da7f43009b2e71cfc5817f843b&w=740'
+WHERE id = 22;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/disposicion-equipo-entrenamiento-vista-superior_23-2149177960.jpg?t=st=1713366856~exp=1713370456~hmac=439ac9274e237b0c5e7ccbadfcebb96a2ca8336b0d7f41d20b7597576b31f7e5&w=1380'
+WHERE id = 23;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/hoguera-campamento-bosque-establecido-excursionistas_181624-7040.jpg?t=st=1713313484~exp=1713317084~hmac=963ea2e419ac968d61dd3e2fc7fe2198346dbfa80145802c6d377ffe36622aad&w=360'
+WHERE id = 24;
+
+UPDATE products
+SET img_url = 'https://img.freepik.com/foto-gratis/personas-que-tienen-actividad-jubilacion-feliz_23-2149168927.jpg?t=st=1713366922~exp=1713370522~hmac=412741dda5330c34bceca648bd4f141347fcb66a31b4f565f1eaadb999903049&w=1380'
+WHERE id = 25;

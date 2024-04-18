@@ -15,4 +15,8 @@
 
 ### Deploy:
 
+Frontend:
+https://main--desafio-latam-marketplaceg43.netlify.app/
+
+Backend:
 https://marketplace-backend-5xk3.onrender.com
